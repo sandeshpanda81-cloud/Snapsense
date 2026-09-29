@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnapSense AI</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="logo">S</div><div><b>SnapSense</b><span>AI LAB BUILD</span></div></div>
+    <button class="nav active" data-page="home">⌂ <span>Overview</span></button>
+    <button class="nav" data-page="chat">✦ <span>Local AI Chat</span></button>
+    <button class="nav" data-page="documents">▣ <span>Document AI</span></button>
+    <button class="nav" data-page="ocr">⌁ <span>Smart OCR</span></button>
+    <button class="nav" data-page="voice">◉ <span>Voice Assistant</span></button>
+    <div class="side-bottom">
+      <div class="privacy-card"><span class="dot"></span><div><b>Privacy-first</b><small>Designed for local processing</small></div></div>
+      <small class="version">SnapSense AI • v1.0</small>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><span class="eyebrow">SNAPDRAGON® AI LAB</span><h1 id="pageTitle">On-device intelligence, made useful.</h1></div>
+      <div class="status"><span id="statusDot" class="dot"></span><span id="statusText">Checking local AI...</span></div>
+    </header>
+
+    <section id="home" class="page active-page">
+      <div class="hero">
+        <div><span class="pill">⚡ Snapdragon PC ready</span><h2>Private AI tools that work <em>closer to the user.</em></h2>
+        <p>SnapSense AI combines local document intelligence, OCR, voice workflows and chat into one lightweight Windows experience.</p>
+        <button class="primary" data-page-jump="chat">Open AI Assistant →</button></div>
+        <div class="orb"><div class="orb-inner">AI</div></div>
+      </div>
+      <div class="grid cards">
+        <div class="card"><span class="icon">✦</span><h3>Local AI Chat</h3><p>Use a local LLM when available, keeping prompts on the PC.</p><button data-page-jump="chat">Try it</button></div>
+        <div class="card"><span class="icon">▣</span><h3>Document AI</h3><p>Extract, summarize and identify key terms from PDF/TXT files.</p><button data-page-jump="documents">Analyze</button></div>
+        <div class="card"><span class="icon">⌁</span><h3>Smart OCR</h3><p>Turn screenshots and images into editable text with local OCR.</p><button data-page-jump="ocr">Extract</button></div>
+        <div class="card"><span class="icon">◉</span><h3>Voice Assistant</h3><p>Capture speech in the browser and convert it into useful notes.</p><button data-page-jump="voice">Start</button></div>
+      </div>
+      <div class="architecture">
+        <div><span class="eyebrow">DESIGN</span><h3>Built around on-device AI</h3><p>SnapSense is designed so compute-heavy features can be mapped to Snapdragon CPU/GPU/NPU acceleration. The prototype also provides local fallbacks for development machines.</p></div>
+        <div class="flow"><span>Input</span><b>→</b><span>AI Engine</span><b>→</b><span>Local Compute</span><b>→</b><span>Result</span></div>
+      </div>
+    </section>
+
+    <section id="chat" class="page">
+      <div class="section-head"><div><span class="eyebrow">LOCAL AI</span><h2>Ask SnapSense</h2></div><span class="mini-tag">No cloud required when local model is connected</span></div>
+      <div class="chatbox">
+        <div id="chatMessages" class="messages"><div class="msg bot"><b>SnapSense</b><p>Hi! Ask me to explain, brainstorm, summarize or structure something.</p></div></div>
+        <div class="composer"><textarea id="chatInput" placeholder="Type your message..."></textarea><button id="sendChat" class="primary">Send ↗</button></div>
+      </div>
+    </section>
+
+    <section id="documents" class="page">
+      <div class="section-head"><div><span class="eyebrow">DOCUMENT AI</span><h2>Summarize a document</h2></div></div>
+      <div class="upload-panel">
+        <input id="docFile" type="file" accept=".pdf,.txt">
+        <label for="docFile" class="drop"><span>▣</span><b>Choose PDF or TXT</b><small>Up to 15 MB • text extraction + local summary</small></label>
+        <button id="summarizeBtn" class="primary">Generate Summary</button>
+      </div>
+      <div id="docResult" class="result hidden"></div>
+    </section>
+
+    <section id="ocr" class="page">
+      <div class="section-head"><div><span class="eyebrow">SMART OCR</span><h2>Extract text from an image</h2></div></div>
+      <div class="upload-panel">
+        <input id="ocrFile" type="file" accept="image/png,image/jpeg,image/webp">
+        <label for="ocrFile" class="drop"><span>⌁</span><b>Choose screenshot or image</b><small>PNG, JPG, JPEG or WEBP</small></label>
+        <button id="ocrBtn" class="primary">Extract Text</button>
+      </div>
+      <div id="ocrResult" class="result hidden"></div>
+    </section>
+
+    <section id="voice" class="page">
+      <div class="section-head"><div><span class="eyebrow">VOICE ASSISTANT</span><h2>Speak. Capture. Organize.</h2></div></div>
+      <div class="voice-card">
+        <button id="micBtn" class="mic">●</button>
+        <h3 id="voiceState">Press the microphone to start</h3>
+        <p>Browser speech recognition is used to capture your voice. The transcript can then be processed locally.</p>
+        <div id="transcript" class="transcript">Your transcript will appear here.</div>
+        <button id="processVoice" class="primary">Process Transcript</button>
+        <div id="voiceResult" class="result hidden"></div>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="/static/script.js"></script>
+</body>
+</html>
